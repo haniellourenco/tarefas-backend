@@ -1,0 +1,11 @@
+create table tarefas(
+ 	id int not null auto_increment primary KEY,
+    tarefatexto  varchar(200) not null
+)
+
+create table subtarefas(
+ 	id int not null auto_increment primary KEY,
+    tarefa_id INT NOT NULL,
+    subtarefatexto  varchar(200) not null,
+    FOREIGN KEY (tarefa_id) REFERENCES tarefas(id)
+)
