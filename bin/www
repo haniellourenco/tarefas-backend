@@ -4,6 +4,7 @@
  * Module dependencies.
  */
 
+global.db = require('../db'); // add
 var app = require('../app');
 var debug = require('debug')('tarefas-backend:server');
 var http = require('http');
