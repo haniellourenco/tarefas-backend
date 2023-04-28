@@ -35,8 +35,6 @@ async function recuperarTarefas(){
 
     const [results] = await con.query(query)
 
-    console.log(results)
-
     const json = results.map((result) => {
         const { tarefa, subtarefas } = result;
         return { tarefa, subtarefas: subtarefas.split(',') };
