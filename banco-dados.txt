@@ -1,17 +1,29 @@
 create table tarefas(
  	id int not null auto_increment primary KEY,
     tarefatexto  varchar(200) not null
-)
+);
 
 create table subtarefas(
  	id int not null auto_increment primary KEY,
     tarefa_id INT NOT NULL,
     subtarefatexto  varchar(200) not null,
     FOREIGN KEY (tarefa_id) REFERENCES tarefas(id)
-)
+);
 
-insert into tarefas (tarefatexto) values ("ir ao mercado")
+insert into tarefas (tarefatexto) values ("ir ao mercado");
 
-insert into subtarefas (tarefa_id, subtarefatexto) values (1, "comprar pao")
-insert into subtarefas (tarefa_id, subtarefatexto) values (1, "comprar refrigerante")
-insert into subtarefas (tarefa_id, subtarefatexto) values (1, "comprar presunto")
+insert into subtarefas (tarefa_id, subtarefatexto) values (1, "comprar pao");
+insert into subtarefas (tarefa_id, subtarefatexto) values (1, "comprar refrigerante");
+insert into subtarefas (tarefa_id, subtarefatexto) values (1, "comprar presunto");
+
+insert into tarefas (tarefatexto) values ("fazer exercicios");
+
+insert into subtarefas (tarefa_id, subtarefatexto) values (2, "correr");
+insert into subtarefas (tarefa_id, subtarefatexto) values (2, "fazer prancha");
+insert into subtarefas (tarefa_id, subtarefatexto) values (2, "fazer flexoes");
+
+insert into tarefas (tarefatexto) values ("limpar casa");
+
+insert into subtarefas (tarefa_id, subtarefatexto) values (3, "limpar banheiro");
+insert into subtarefas (tarefa_id, subtarefatexto) values (3, "limpar quarto");
+insert into subtarefas (tarefa_id, subtarefatexto) values (3, "limpar sala")
