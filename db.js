@@ -31,17 +31,25 @@ async function recuperarTarefas(){
     // pega ou cria uma conexão
     const con = await connect();
 
-    // executa um SELECT no BD
-    const [linhas] = await con.query("SELECT tarefas.id, tarefas.tarefatexto FROM tarefas JOIN subtarefas ON subtarefas.tarefa_id = tarefas.id");
+    const query = `SELECT tarefas.tarefatexto AS tarefa, GROUP_CONCAT(subtarefas.subtarefatexto) AS subtarefas FROM tarefas INNER JOIN subtarefas ON tarefas.id = subtarefas.tarefa_id GROUP BY tarefas.id, tarefas.tarefatexto`;
 
-    // retorna o resultado da consulta
-    return linhas
+    const [results] = await con.query(query)
+
+    console.log(results)
+
+    const json = results.map((result) => {
+        const { tarefa, subtarefas } = result;
+        return { tarefa, subtarefas: subtarefas.split(',') };
+      });
+    
+    // retorna o json da consulta
+    return json
 }
 
 // aqui vao outras funções de manipulação do BD
 
 
-// execua a função connect
+// executa a função connect
 connect();
 
 module.exports = { recuperarTarefas }

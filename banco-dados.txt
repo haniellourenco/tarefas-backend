@@ -9,3 +9,9 @@ create table subtarefas(
     subtarefatexto  varchar(200) not null,
     FOREIGN KEY (tarefa_id) REFERENCES tarefas(id)
 )
+
+insert into tarefas (tarefatexto) values ("ir ao mercado")
+
+insert into subtarefas (tarefa_id, subtarefatexto) values (1, "comprar pao")
+insert into subtarefas (tarefa_id, subtarefatexto) values (1, "comprar refrigerante")
+insert into subtarefas (tarefa_id, subtarefatexto) values (1, "comprar presunto")
