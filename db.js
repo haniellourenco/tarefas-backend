@@ -66,5 +66,5 @@ async function recuperarTarefa(id){
 
 // executa a função connect
 connect();
-
+//exporta funções
 module.exports = { recuperarTarefas, recuperarTarefa }
