@@ -65,10 +65,10 @@ async function recuperarTarefa(id) {
 async function cadastrarTarefa(tarefa) {
 	const con = await connect();
 	const query = "INSERT INTO tarefas(tarefatexto) VALUES (?);";
-	return await conn.query(query, [tarefas.tarefatexto]);
+	return await con.query(query, [tarefa.tarefa]);
 }
 
 // executa a função connect
 connect();
 //exporta funções
-module.exports = { recuperarTarefas, recuperarTarefa };
+module.exports = { recuperarTarefas, recuperarTarefa, cadastrarTarefa };
