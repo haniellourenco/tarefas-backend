@@ -33,6 +33,18 @@ router.get("/tarefas/:id", async function (req, res, next) {
 	}
 });
 
+// PUT
+router.put("/tarefas/:id", async function (req, res, next) {
+	try {
+		const tarefaId = req.params.id;
+		const tarefa = req.body.tarefa;
+		await global.db.editarTarefa({ tarefa, tarefaId });
+		res.redirect("/tarefas/");
+	} catch (error) {
+		res.redirect("/?erro=" + error);
+	}
+});
+
 // POST
 router.post("/new", async function (req, res, next) {
 	const tarefa = req.body.tarefa;

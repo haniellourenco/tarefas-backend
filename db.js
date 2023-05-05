@@ -68,7 +68,18 @@ async function cadastrarTarefa(tarefa) {
 	return await con.query(query, [tarefa.tarefa]);
 }
 
+async function editarTarefa(tarefa) {
+	const con = await connect();
+	const query = `UPDATE tarefas SET tarefatexto = ? where id = ${tarefa.tarefaId};`;
+	return await con.query(query, [tarefa.tarefa]);
+}
+
 // executa a função connect
 connect();
 //exporta funções
-module.exports = { recuperarTarefas, recuperarTarefa, cadastrarTarefa };
+module.exports = {
+	recuperarTarefas,
+	recuperarTarefa,
+	cadastrarTarefa,
+	editarTarefa,
+};
